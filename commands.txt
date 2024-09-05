@@ -1,0 +1,8 @@
+python3 -m venv env 
+    //create virtual env directory
+source env/bin/activate 
+    //activate virtual env
+//create requirements.txt file
+pip3 install -r requirements.txt
+django-admin startproject backend 
+
