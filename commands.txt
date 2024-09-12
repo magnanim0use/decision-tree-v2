@@ -5,4 +5,39 @@ source env/bin/activate
 //create requirements.txt file
 pip3 install -r requirements.txt
 django-admin startproject backend 
+cd backend
+python manage.py startapp api
+move requirements.txt to /backend/backend
+create ./backend/api/serializers.py and create User
+go to /api/views.py to instantiate user
 
+!!! revisit views if serializer_class is incorrect (vid diverges from copilot
+
+backend/urls.py add User)
+
+cli
+# python3 manage.py migrate
+# python3 manage.py runserver
+
+go to 
+http://127.0.0.1:8000/api/user/register
+# register user
+http://127.0.0.1:8000/api/token
+# enter creds
+# see refresh & access tokens
+
+import user to models.py
+make create/edit/delete methods for serializers.py UserSerializer
+import Notes into views
+
+create api/urls.py
+
+# python3 manage.py makemigration
+# python3 manage.py migrate
+python3 manage.py runserver
+
+# ${ROOT} npm create vite@latest frontend -- -- template react
+# Typescript + SWC
+
+delete css files
+create frontend/src** files
