@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigation } from 'react-router-dom';
-import './App.css';
+// import './App.css';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './components/ProtectedRoutes';
 import NotFound from './pages/NotFound';
 
 function Logout() {
@@ -30,7 +30,8 @@ function App() {
           }
         ></Route>
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/register" element={<RegisterAndLogout />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
