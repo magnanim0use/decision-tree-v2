@@ -7,10 +7,11 @@ import { useEffect, useState } from 'react';
 import { ReactNode } from 'react';
 
 export default function protectedRoute({ children }: { children: ReactNode }) {
-  const [isAuthorized, setIsAuthorized] = useState(null);
+  const [isAuthorized, setIsAuthorized] = useState<Boolean | null>(null);
 
   useEffect(() => {
     auth().catch(() => setIsAuthorized(false));
+  });
 
   const refreshToken = async () => {
     const token = localStorage.getItem(REFRESH_TOKEN);
@@ -44,7 +45,7 @@ export default function protectedRoute({ children }: { children: ReactNode }) {
     }
 
     const decoded = jwtDecode(token);
-    if (decoded.exp * 1000 < Date.now()) {
+    if (!decoded.exp || decoded.exp * 1000 < Date.now()) {
       await refreshToken();
     } else {
       setIsAuthorized(true);
